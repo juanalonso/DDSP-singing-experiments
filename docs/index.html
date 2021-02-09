@@ -1,0 +1,652 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Audio Examples</title><style>
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.highlight-default {
+}
+.highlight-gray {
+	color: rgb(155,154,151);
+}
+.highlight-brown {
+	color: rgb(100,71,58);
+}
+.highlight-orange {
+	color: rgb(217,115,13);
+}
+.highlight-yellow {
+	color: rgb(223,171,1);
+}
+.highlight-teal {
+	color: rgb(15,123,108);
+}
+.highlight-blue {
+	color: rgb(11,110,153);
+}
+.highlight-purple {
+	color: rgb(105,64,165);
+}
+.highlight-pink {
+	color: rgb(173,26,114);
+}
+.highlight-red {
+	color: rgb(224,62,62);
+}
+.highlight-gray_background {
+	background: rgb(235,236,237);
+}
+.highlight-brown_background {
+	background: rgb(233,229,227);
+}
+.highlight-orange_background {
+	background: rgb(250,235,221);
+}
+.highlight-yellow_background {
+	background: rgb(251,243,219);
+}
+.highlight-teal_background {
+	background: rgb(221,237,234);
+}
+.highlight-blue_background {
+	background: rgb(221,235,241);
+}
+.highlight-purple_background {
+	background: rgb(234,228,242);
+}
+.highlight-pink_background {
+	background: rgb(244,223,235);
+}
+.highlight-red_background {
+	background: rgb(251,228,228);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(55, 53, 47, 0.6);
+	fill: rgba(55, 53, 47, 0.6);
+}
+.block-color-brown {
+	color: rgb(100,71,58);
+	fill: rgb(100,71,58);
+}
+.block-color-orange {
+	color: rgb(217,115,13);
+	fill: rgb(217,115,13);
+}
+.block-color-yellow {
+	color: rgb(223,171,1);
+	fill: rgb(223,171,1);
+}
+.block-color-teal {
+	color: rgb(15,123,108);
+	fill: rgb(15,123,108);
+}
+.block-color-blue {
+	color: rgb(11,110,153);
+	fill: rgb(11,110,153);
+}
+.block-color-purple {
+	color: rgb(105,64,165);
+	fill: rgb(105,64,165);
+}
+.block-color-pink {
+	color: rgb(173,26,114);
+	fill: rgb(173,26,114);
+}
+.block-color-red {
+	color: rgb(224,62,62);
+	fill: rgb(224,62,62);
+}
+.block-color-gray_background {
+	background: rgb(235,236,237);
+}
+.block-color-brown_background {
+	background: rgb(233,229,227);
+}
+.block-color-orange_background {
+	background: rgb(250,235,221);
+}
+.block-color-yellow_background {
+	background: rgb(251,243,219);
+}
+.block-color-teal_background {
+	background: rgb(221,237,234);
+}
+.block-color-blue_background {
+	background: rgb(221,235,241);
+}
+.block-color-purple_background {
+	background: rgb(234,228,242);
+}
+.block-color-pink_background {
+	background: rgb(244,223,235);
+}
+.block-color-red_background {
+	background: rgb(251,228,228);
+}
+.select-value-color-default { background-color: rgba(206,205,202,0.5); }
+.select-value-color-gray { background-color: rgba(155,154,151, 0.4); }
+.select-value-color-brown { background-color: rgba(140,46,0,0.2); }
+.select-value-color-orange { background-color: rgba(245,93,0,0.2); }
+.select-value-color-yellow { background-color: rgba(233,168,0,0.2); }
+.select-value-color-green { background-color: rgba(0,135,107,0.2); }
+.select-value-color-blue { background-color: rgba(0,120,223,0.2); }
+.select-value-color-purple { background-color: rgba(103,36,222,0.2); }
+.select-value-color-pink { background-color: rgba(221,0,129,0.2); }
+.select-value-color-red { background-color: rgba(255,0,26,0.2); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="5982c869-a408-4435-b85d-a4a9a200930f" class="page sans"><header><h1 class="page-title">Audio Examples</h1></header><div class="page-body"><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="3d648d44-588c-4880-88a6-cc22b4e8fa47"><div style="font-size:1.5em"><span class="icon">🎼</span></div><div style="width:100%">Audio companion for &quot;Singing DDSP: understanding the possibilities of DDSP as a singing synthesizer&quot;
+Semester project, autumn 2020
+Sound and Music Computing, Aalborg University
+Code available at  <a href="https://github.com/juanalonso/DDSP-singing-experiments">https://github.com/juanalonso/DDSP-singing-experiments</a>.</div></figure><p id="78ef7146-ae08-4bd4-99a1-e4e71a8c12c6" class=""><strong>Table of contents</strong></p><nav id="5389bc95-9917-4f70-ab86-94ae7668749c" class="block-color-gray table_of_contents"><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#f3c48704-9dbd-499f-a5f7-11910caf0ff3">4.1 Pre-evaluation (Violin)</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#a40bcd16-70c8-4660-8fee-9977d4061945">4.2.1 Single voice model</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#9c0aa785-cb86-447f-a0a9-1211b022bdde">4.2.2 Multiple voices model - voices2</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#f4333eb1-f28b-4861-bcee-9ba80f583f10">4.2.2 Multiple voices model - voices3</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#35e812af-3609-434a-bd3e-d6e9d748c22f">4.3 Single dataset, different spectral parameters</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#dd363fb5-8207-4408-aced-54bf3f7eae99">5.2 Problems</a></div></nav><h3 id="f3c48704-9dbd-499f-a5f7-11910caf0ff3" class="">4.1 Pre-evaluation (Violin)</h3><figure id="baf40796-fa60-4952-8bc3-f9c90f84a75a" class="image"><a href="Audio%20Examples%20baf40796fa6049528bc3f9c90f84a75a/fig_preeval_orig.png"><img style="width:1841px" src="Audio%20Examples%20baf40796fa6049528bc3f9c90f84a75a/fig_preeval_orig.png"/></a><figcaption>Original audio</figcaption></figure><div id="91a245e6-fa8c-45f7-8baa-205dd2786f78" class="column-list"><div id="67ea5c7b-47de-461c-bb44-4fd085a74609" style="width:81.25%" class="column"><figure id="563cac60-e734-4557-a2b1-3b0f13e42137" class="image"><a href="Audio%20Examples%20baf40796fa6049528bc3f9c90f84a75a/fig_preeval_false.png"><img style="width:864px" src="Audio%20Examples%20baf40796fa6049528bc3f9c90f84a75a/fig_preeval_false.png"/></a><figcaption>Raw resynthesis</figcaption></figure></div><div id="96eeb3c4-d5ed-4a48-ab04-7a789a069c8b" style="width:18.75%" class="column"><p id="f7e6262f-8431-4215-8a0d-87d9cf55d890" class="">
+</p><figure id="fc19ce2f-1f9c-42da-a894-de22488de52e"><audio controls="" preload="auto" src="Audio%20Examples%20baf40796fa6049528bc3f9c90f84a75a/preeval_false.wav">https://s3-us-west-2.amazonaws.com/secure.notion-static.com/1c7ab3db-dd69-441b-b5b6-f1e4e1dcb6d6/preeval_false.wav" type="audio/pcm"></audio></div></figure></div></div><div id="c6cb44e7-b5b8-4191-b768-61f97917db48" class="column-list"><div id="013ce3fd-5045-4e5a-9b80-c51779f93210" style="width:81.25%" class="column"><figure id="2fad5b23-f633-4495-b70c-2994b22ce246" class="image"><a href="Audio%20Examples%20baf40796fa6049528bc3f9c90f84a75a/fig_preeval_true.png"><img style="width:1841px" src="Audio%20Examples%20baf40796fa6049528bc3f9c90f84a75a/fig_preeval_true.png"/></a><figcaption>Resynthesis with statistical information and masking</figcaption></figure></div><div id="95be13ef-03be-4bf6-abf2-f10031a00081" style="width:18.749999999999996%" class="column"><p id="eeb5c5c7-1a88-46f6-84df-2e3cff640542" class="">
+</p><figure id="d4d2bc70-2f73-4bf9-9f29-922431499fb0"><audio controls="" preload="auto" src="Audio%20Examples%20baf40796fa6049528bc3f9c90f84a75a/preeval_true.wav">https://s3-us-west-2.amazonaws.com/secure.notion-static.com/8700515b-a8a6-42a0-ba26-7c6316a32b83/preeval_true.wav" type="audio/pcm"></audio></div></figure><p id="8f42801c-a04a-4925-ae59-2d8cd4c68bb8" class="">
+</p></div></div><h3 id="a40bcd16-70c8-4660-8fee-9977d4061945" class="">4.2.1 Single voice model</h3><div id="262ff68d-596a-41fc-a555-cf5cad0d9ed9" class="column-list"><div id="8eccf164-5e38-4422-a108-cd3c79928200" style="width:81.25%" class="column"><figure id="ca1a2436-33f2-423e-80ff-b9da3a515fa2" class="image"><a href="Audio%20Examples%20baf40796fa6049528bc3f9c90f84a75a/alba_rainbow.png"><img style="width:1841px" src="Audio%20Examples%20baf40796fa6049528bc3f9c90f84a75a/alba_rainbow.png"/></a><figcaption>Alba</figcaption></figure></div><div id="0e1024da-a72c-4eed-885a-4f5681a35b57" style="width:18.75%" class="column"><p id="5c78c66d-6a0b-4018-8b30-ca0a6fb806b4" class="">
+</p><figure id="0ff523fe-f49c-4d50-8485-5a1b3a6c33f0"><audio controls="" preload="auto" src="Audio%20Examples%20baf40796fa6049528bc3f9c90f84a75a/alba.wav">https://s3-us-west-2.amazonaws.com/secure.notion-static.com/82b50aab-608f-4a67-a533-6aa87297aa4b/alba.wav" type="audio/pcm"></audio></div></figure><figure id="8b043f75-e6ee-4c0b-a651-77692c8d2d71" class="image"><a href="Audio%20Examples%20baf40796fa6049528bc3f9c90f84a75a/alba.png"><img style="width:666px" src="Audio%20Examples%20baf40796fa6049528bc3f9c90f84a75a/alba.png"/></a></figure></div></div><div id="1924bec5-ffae-4323-a18e-27cb3974d39b" class="column-list"><div id="1f66b1e2-b6a2-4b16-86bd-b5ea1acee1b2" style="width:81.25%" class="column"><figure id="fe108171-3520-4fd3-b97c-22836cd718b1" class="image"><a href="Audio%20Examples%20baf40796fa6049528bc3f9c90f84a75a/belen_rainbow.png"><img style="width:1841px" src="Audio%20Examples%20baf40796fa6049528bc3f9c90f84a75a/belen_rainbow.png"/></a><figcaption>Belen</figcaption></figure></div><div id="8d47f39e-96f7-4037-aad7-10bb7e6d1476" style="width:18.750000000000004%" class="column"><p id="1e83e73c-a91b-4f50-9c82-a827104800a8" class="">
+</p><figure id="8e5c5bf3-771d-413b-847a-94ebca647772"><audio controls="" preload="auto" src="Audio%20Examples%20baf40796fa6049528bc3f9c90f84a75a/belen.wav">https://s3-us-west-2.amazonaws.com/secure.notion-static.com/d50caef3-9dea-40f0-a72c-9538feaf76bb/belen.wav" type="audio/pcm"></audio></div></figure><figure id="dc47faf2-71b6-4ea1-ae38-e72692e1ba48" class="image"><a href="Audio%20Examples%20baf40796fa6049528bc3f9c90f84a75a/belen.png"><img style="width:666px" src="Audio%20Examples%20baf40796fa6049528bc3f9c90f84a75a/belen.png"/></a></figure></div></div><div id="1c5c25bd-9574-4a93-bd1d-03c495411205" class="column-list"><div id="73a462af-7feb-4db6-b3b9-9ec122f78c84" style="width:81.25%" class="column"><figure id="1a782c59-af82-442f-8a1f-d1ff1c2086d9" class="image"><a href="Audio%20Examples%20baf40796fa6049528bc3f9c90f84a75a/eva_rainbow.png"><img style="width:1841px" src="Audio%20Examples%20baf40796fa6049528bc3f9c90f84a75a/eva_rainbow.png"/></a><figcaption>Eva</figcaption></figure></div><div id="a9f9dcec-6f6f-422c-81e0-2aba95f4aecd" style="width:18.75%" class="column"><p id="77eb1570-d43b-4cde-9a2e-ac203d5b4a90" class="">
+</p><figure id="ffd0a88a-cfa1-4b49-8a45-54e14a4d2071"><audio controls="" preload="auto" src="Audio%20Examples%20baf40796fa6049528bc3f9c90f84a75a/eva.wav">https://s3-us-west-2.amazonaws.com/secure.notion-static.com/5fbf59b4-4077-4d39-8047-6d5b7c80e6f4/eva.wav" type="audio/pcm"></audio></div></figure><figure id="f84ae581-87a2-43b0-80fa-9ab52ac2c5aa" class="image"><a href="Audio%20Examples%20baf40796fa6049528bc3f9c90f84a75a/eva.png"><img style="width:666px" src="Audio%20Examples%20baf40796fa6049528bc3f9c90f84a75a/eva.png"/></a></figure></div></div><div id="2f6366d4-4269-4af6-a7d3-165b2f9522f3" class="column-list"><div id="413d3f50-092f-4bfb-a920-6a3940da93b0" style="width:81.25%" class="column"><figure id="9a4be56c-ca71-4255-bbc4-533ec1a412be" class="image"><a href="Audio%20Examples%20baf40796fa6049528bc3f9c90f84a75a/mrallsop_rainbow.png"><img style="width:1841px" src="Audio%20Examples%20baf40796fa6049528bc3f9c90f84a75a/mrallsop_rainbow.png"/></a><figcaption>Mrallsop</figcaption></figure></div><div id="af0ae2ce-4008-4434-973d-84494c80a6eb" style="width:18.75%" class="column"><p id="65066560-283e-46e1-96aa-e473dc58e68d" class="">
+</p><figure id="b4421ba3-e0a6-46fc-a7a8-7475885ab824"><audio controls="" preload="auto" src="Audio%20Examples%20baf40796fa6049528bc3f9c90f84a75a/mrallsop.wav">https://s3-us-west-2.amazonaws.com/secure.notion-static.com/dc705f13-4b73-40d4-a220-d7bd4c166be7/mrallsop.wav" type="audio/pcm"></audio></div></figure><figure id="d6927a88-4d7d-4020-9186-779d7f6fa567" class="image"><a href="Audio%20Examples%20baf40796fa6049528bc3f9c90f84a75a/mrallsop.png"><img style="width:666px" src="Audio%20Examples%20baf40796fa6049528bc3f9c90f84a75a/mrallsop.png"/></a></figure></div></div><div id="e55a4a3c-f239-432e-8d8a-ff228fae4c99" class="column-list"><div id="9b63f04a-6b48-4405-9277-e1ccf58ae2e3" style="width:81.25%" class="column"><figure id="1dfb3359-e9d3-4690-8b62-0a74b1d87d83" class="image"><a href="Audio%20Examples%20baf40796fa6049528bc3f9c90f84a75a/servando_rainbow.png"><img style="width:1841px" src="Audio%20Examples%20baf40796fa6049528bc3f9c90f84a75a/servando_rainbow.png"/></a><figcaption>Servando</figcaption></figure></div><div id="8e29e873-86ab-4078-ad77-a866e4cda2e8" style="width:18.750000000000007%" class="column"><p id="70b7621c-e8b7-4ef8-87f4-12189f480ce0" class="">
+</p><figure id="b6f9cf36-359e-4e76-b590-b722c6c7d45c"><audio controls="" preload="auto" src="Audio%20Examples%20baf40796fa6049528bc3f9c90f84a75a/servando.wav">https://s3-us-west-2.amazonaws.com/secure.notion-static.com/89265c4d-e5ac-4a0d-8f20-83b9f2390bd4/servando.wav" type="audio/pcm"></audio></div></figure><figure id="b1bfa142-0075-44a8-8b68-3c30c0751928" class="image"><a href="Audio%20Examples%20baf40796fa6049528bc3f9c90f84a75a/servando.png"><img style="width:666px" src="Audio%20Examples%20baf40796fa6049528bc3f9c90f84a75a/servando.png"/></a></figure><p id="dc184bd7-9177-4a0e-8c5c-c0c9fd0df024" class="">
+</p></div></div><h3 id="9c0aa785-cb86-447f-a0a9-1211b022bdde" class="">4.2.2 Multiple voices model - voices2</h3><div id="44167341-dd45-4a6d-9f32-a460bf27b856" class="column-list"><div id="401b3c75-e324-442f-9306-a8f0c0861d6f" style="width:50%" class="column"><p id="6c3ecb17-8878-4344-847c-cdb9404e0180" class="">Common parameters:</p><figure id="456b8b06-7696-4aff-b724-00e1ba19ef82" class="image"><a href="Audio%20Examples%20baf40796fa6049528bc3f9c90f84a75a/common.png"><img style="width:336px" src="Audio%20Examples%20baf40796fa6049528bc3f9c90f84a75a/common.png"/></a></figure><p id="ea2ec263-e473-4776-8eee-e08002e8aab5" class="">
+</p></div><div id="d23ad3f2-abfc-4bce-ac6f-c4aeb0e64494" style="width:50%" class="column"><p id="e06eab49-b4d0-4047-857b-4ddbf5dc4a7d" class="">
+</p></div></div><div id="6c0421df-0691-4c19-af67-c71170f9a308" class="column-list"><div id="c9dda957-7c46-47e3-9580-908e72be790b" style="width:81.25%" class="column"><figure id="16c67e5f-bea9-41bd-bf29-c72154757285" class="image"><a href="Audio%20Examples%20baf40796fa6049528bc3f9c90f84a75a/1.png"><img style="width:1841px" src="Audio%20Examples%20baf40796fa6049528bc3f9c90f84a75a/1.png"/></a><figcaption>-10dB</figcaption></figure></div><div id="990fc791-0e07-4933-8312-42d5e29b5719" style="width:18.750000000000007%" class="column"><p id="2cfb6de0-0b22-44cf-83f5-a3afeb1db9bc" class="">
+</p><figure id="ec3d768d-2ca6-478e-8d57-ffdb5bf9fda5"><audio controls="" preload="auto" src="Audio%20Examples%20baf40796fa6049528bc3f9c90f84a75a/1.wav">https://s3-us-west-2.amazonaws.com/secure.notion-static.com/203c6000-326b-4f35-b6db-5b6c011d2094/1.wav" type="audio/pcm"></audio></div></figure></div></div><div id="0e0a2bd7-e798-441d-a78a-834d1033ea62" class="column-list"><div id="da581726-68a5-4f99-a18d-4fbb2b3c73a3" style="width:81.25%" class="column"><figure id="26e51fc0-657b-4f7d-ad17-3e4fe2557fed" class="image"><a href="Audio%20Examples%20baf40796fa6049528bc3f9c90f84a75a/2.png"><img style="width:1841px" src="Audio%20Examples%20baf40796fa6049528bc3f9c90f84a75a/2.png"/></a><figcaption>+0dB</figcaption></figure></div><div id="8a51438e-3f72-40d0-a091-0921d7861a8e" style="width:18.749999999999993%" class="column"><p id="72ce251d-3873-43b7-a485-93d26e0f5430" class="">
+</p><figure id="e61f4e44-8566-41a3-9cb0-50ac810d5a15"><audio controls="" preload="auto" src="Audio%20Examples%20baf40796fa6049528bc3f9c90f84a75a/2.wav">https://s3-us-west-2.amazonaws.com/secure.notion-static.com/b3e197e4-e5cc-4231-b033-6803d836f1a0/2.wav" type="audio/pcm"></audio></div></figure></div></div><div id="fb0491ed-89be-4011-9690-3131d4bc58b3" class="column-list"><div id="89af6542-c1d1-4d6d-a742-aa6ac6d958db" style="width:81.25%" class="column"><figure id="905696a8-a40e-4c2f-8932-4cfa556fe899" class="image"><a href="Audio%20Examples%20baf40796fa6049528bc3f9c90f84a75a/3.png"><img style="width:1841px" src="Audio%20Examples%20baf40796fa6049528bc3f9c90f84a75a/3.png"/></a><figcaption>+10dB</figcaption></figure></div><div id="0e28bca9-4974-48d7-9176-fdb4fe3bac69" style="width:18.750000000000004%" class="column"><p id="db965355-6c65-4720-a32c-f0916e5251b2" class="">
+</p><figure id="4024a50b-5341-44dc-91d8-3bcd2d81b698"><audio controls="" preload="auto" src="Audio%20Examples%20baf40796fa6049528bc3f9c90f84a75a/3.wav">https://s3-us-west-2.amazonaws.com/secure.notion-static.com/8ba5dbdf-a000-4c01-a890-98e6d97c4bde/3.wav" type="audio/pcm"></audio></div></figure></div></div><h3 id="f4333eb1-f28b-4861-bcee-9ba80f583f10" class="">4.2.2 Multiple voices model - voices3</h3><div id="25a190f9-4cbd-4abb-b0db-1278b802f8a7" class="column-list"><div id="1a8a17a7-29c4-44e8-86a8-f5f2173ae4ee" style="width:50%" class="column"><p id="2878026a-e980-4cc5-96fa-d83a6bc277e1" class="">Common parameters:</p><figure id="3ccd9764-c5e2-41f0-a7f7-841253aa27ba" class="image"><a href="Audio%20Examples%20baf40796fa6049528bc3f9c90f84a75a/common%201.png"><img style="width:336px" src="Audio%20Examples%20baf40796fa6049528bc3f9c90f84a75a/common%201.png"/></a></figure></div><div id="c92f807b-11a6-44f7-bece-9f30fdc2ba5f" style="width:50%" class="column"><p id="8c2a1d24-6b06-45cc-a9b6-a7b7d7165c80" class="">
+</p></div></div><div id="9ee2de7e-4fe4-4ba2-aef7-2e370edfd1f5" class="column-list"><div id="503cd5b4-45a0-4dc4-ba7e-5303095b09a5" style="width:81.25%" class="column"><figure id="0e3a1431-3001-402d-bbfc-2aa2cc6caeb7" class="image"><a href="Audio%20Examples%20baf40796fa6049528bc3f9c90f84a75a/1%201.png"><img style="width:1841px" src="Audio%20Examples%20baf40796fa6049528bc3f9c90f84a75a/1%201.png"/></a><figcaption>+0 oct, -10dB</figcaption></figure></div><div id="81f079db-4fe0-4eb8-a290-8c6211792f53" style="width:18.75%" class="column"><p id="bcdcc52a-0075-4278-a681-66ccc918fc85" class="">
+</p><figure id="d47981eb-78dc-48a7-8003-6db20826391e"><audio controls="" preload="auto" src="Audio%20Examples%20baf40796fa6049528bc3f9c90f84a75a/1%201.wav">https://s3-us-west-2.amazonaws.com/secure.notion-static.com/7c7c9da3-9615-4ed7-b7c1-94d7d7da2e30/1.wav" type="audio/pcm"></audio></div></figure></div></div><div id="84a7d546-fc8e-4f17-b73d-a6dd6583d6ab" class="column-list"><div id="95891cfa-0f03-4f61-bda2-23376f433a76" style="width:81.25%" class="column"><figure id="a1da3035-e874-48cb-bf3a-58ff934b627f" class="image"><a href="Audio%20Examples%20baf40796fa6049528bc3f9c90f84a75a/2%201.png"><img style="width:864px" src="Audio%20Examples%20baf40796fa6049528bc3f9c90f84a75a/2%201.png"/></a><figcaption>+0 oct, +0dB</figcaption></figure></div><div id="0aa2c474-7a71-40bd-bd79-e2896ed0c524" style="width:18.75%" class="column"><p id="739614de-1728-42f7-b529-fdd73180ef76" class="">
+</p><figure id="b8b788e6-b24e-4dde-b221-b8ffecfd7261"><audio controls="" preload="auto" src="Audio%20Examples%20baf40796fa6049528bc3f9c90f84a75a/2%201.wav">https://s3-us-west-2.amazonaws.com/secure.notion-static.com/dd22450f-37ec-40b8-8870-332f76bdc06a/2.wav" type="audio/pcm"></audio></div></figure></div></div><div id="0f1fbaac-5005-466b-ac72-e01dbfaae530" class="column-list"><div id="d8e8827f-7176-4aeb-b914-ccfb6bbc353e" style="width:81.25%" class="column"><figure id="6bf59dcc-e5a9-423f-b714-6daf0769495f" class="image"><a href="Audio%20Examples%20baf40796fa6049528bc3f9c90f84a75a/3%201.png"><img style="width:1841px" src="Audio%20Examples%20baf40796fa6049528bc3f9c90f84a75a/3%201.png"/></a><figcaption>+0 oct, +10dB</figcaption></figure></div><div id="f6edec6b-683e-4342-b37f-3452a919148d" style="width:18.749999999999996%" class="column"><p id="67d2a687-18f4-481b-9e5d-eb83e08f017e" class="">
+</p><figure id="140a4a6d-017a-4522-9948-e0dc7be0b0d5"><audio controls="" preload="auto" src="Audio%20Examples%20baf40796fa6049528bc3f9c90f84a75a/3%201.wav">https://s3-us-west-2.amazonaws.com/secure.notion-static.com/e7581310-1393-4cbb-9b49-5647ad1d1f61/3.wav" type="audio/pcm"></audio></div></figure></div></div><div id="08889afd-fd08-4778-a860-a02447b54502" class="column-list"><div id="f447ddeb-9a3a-4ce1-b208-46f9056a480a" style="width:81.25%" class="column"><figure id="4a3d83ae-fc8b-467f-8288-55b8f3202178" class="image"><a href="Audio%20Examples%20baf40796fa6049528bc3f9c90f84a75a/4.png"><img style="width:1841px" src="Audio%20Examples%20baf40796fa6049528bc3f9c90f84a75a/4.png"/></a><figcaption>+1 oct, -10dB</figcaption></figure></div><div id="d19ca40a-df6c-4f9d-8355-81fda63689e1" style="width:18.75%" class="column"><p id="844f6ba7-3a2f-489f-876d-190928354cc6" class="">
+</p><figure id="7c7e1428-e9fa-4498-a21e-aafd22d30eb9"><audio controls="" preload="auto" src="Audio%20Examples%20baf40796fa6049528bc3f9c90f84a75a/4.wav">https://s3-us-west-2.amazonaws.com/secure.notion-static.com/e6e13f82-8b78-4ef0-86f2-84322307a922/4.wav" type="audio/pcm"></audio></div></figure></div></div><div id="8107d581-62be-45a2-a4d4-34411c857b92" class="column-list"><div id="68cc6eb4-7710-4691-bc69-e713852f3fdf" style="width:81.25%" class="column"><figure id="b17e5bf0-c8d8-460f-8c1d-f2df66a9f012" class="image"><a href="Audio%20Examples%20baf40796fa6049528bc3f9c90f84a75a/5.png"><img style="width:1841px" src="Audio%20Examples%20baf40796fa6049528bc3f9c90f84a75a/5.png"/></a><figcaption>+1 oct, +0dB</figcaption></figure></div><div id="6b139e1f-a03e-412f-bf7c-d0d72a613b98" style="width:18.750000000000004%" class="column"><p id="55b833f8-c622-4c68-846d-ccef9ade6b3a" class="">
+</p><figure id="bd9781a1-be5b-4ff7-babd-e3d148efb9c8"><audio controls="" preload="auto" src="Audio%20Examples%20baf40796fa6049528bc3f9c90f84a75a/5.wav">https://s3-us-west-2.amazonaws.com/secure.notion-static.com/5d62109a-4d02-45b6-8f24-cabdf5a21afa/5.wav" type="audio/pcm"></audio></div></figure></div></div><div id="cf3e08c8-964c-469a-9466-81735386ff96" class="column-list"><div id="b11a7367-297d-4b2e-bea2-6ebf24af57a0" style="width:81.25%" class="column"><figure id="ce0e2038-b53e-4618-9fa0-a7d7dbfb8443" class="image"><a href="Audio%20Examples%20baf40796fa6049528bc3f9c90f84a75a/6.png"><img style="width:1841px" src="Audio%20Examples%20baf40796fa6049528bc3f9c90f84a75a/6.png"/></a><figcaption>+1 oct, +10dB</figcaption></figure><h3 id="35e812af-3609-434a-bd3e-d6e9d748c22f" class="">4.3 Single dataset, different spectral parameters</h3><p id="1721ce6e-bc8f-4a88-a8a0-e1697c3975eb" class="">Common parameters:</p><figure id="759f5247-52a6-4072-9fd6-0d5df0111b1c" class="image"><a href="Audio%20Examples%20baf40796fa6049528bc3f9c90f84a75a/Captura_de_pantalla_2020-12-17_a_las_18.12.35.png"><img style="width:192px" src="Audio%20Examples%20baf40796fa6049528bc3f9c90f84a75a/Captura_de_pantalla_2020-12-17_a_las_18.12.35.png"/></a></figure></div><div id="58a72298-d5a6-4397-b690-172523481401" style="width:18.750000000000004%" class="column"><p id="3ce2a5b0-84d5-4f68-b6ed-ea5972600976" class="">
+</p><figure id="f9ffb41b-2f8b-4547-b07e-1d3732182a0f"><audio controls="" preload="auto" src="Audio%20Examples%20baf40796fa6049528bc3f9c90f84a75a/6.wav">https://s3-us-west-2.amazonaws.com/secure.notion-static.com/ea5de175-196e-4965-81d0-09dd3b77c30b/6.wav" type="audio/pcm"></audio></div></figure></div></div><figure id="9fd32626-cb53-4b61-954b-27fbb9dd08fd"><audio controls="" preload="auto" src="Audio%20Examples%20baf40796fa6049528bc3f9c90f84a75a/20_10.wav">https://s3-us-west-2.amazonaws.com/secure.notion-static.com/256187bb-1a7d-48e1-89e1-2dd6a1e90e84/20_10.wav" type="audio/pcm"></audio></div><figcaption>h:20 n:10</figcaption></figure><figure id="d87c5866-7287-4d6d-9e68-669945907744"><audio controls="" preload="auto" src="Audio%20Examples%20baf40796fa6049528bc3f9c90f84a75a/20_35.wav">https://s3-us-west-2.amazonaws.com/secure.notion-static.com/f7e5d796-0564-4487-bd36-8bd096511a0e/20_35.wav" type="audio/pcm"></audio></div><figcaption>h:20 n:35</figcaption></figure><figure id="7c17cb44-c689-4f86-9c7c-4d4090e2c81f"><audio controls="" preload="auto" src="Audio%20Examples%20baf40796fa6049528bc3f9c90f84a75a/20_65.wav">https://s3-us-west-2.amazonaws.com/secure.notion-static.com/9b36d2b7-03ae-4fe8-b876-c458455c2c0c/20_65.wav" type="audio/pcm"></audio></div><figcaption>h:20 n:65</figcaption></figure><figure id="ed967495-a71c-4c96-a0ed-ab7360ac6357"><audio controls="" preload="auto" src="Audio%20Examples%20baf40796fa6049528bc3f9c90f84a75a/60_10.wav">https://s3-us-west-2.amazonaws.com/secure.notion-static.com/3779d3a7-2c6a-4d88-844c-adc86910e1f3/60_10.wav" type="audio/pcm"></audio></div><figcaption>h:60 n:10</figcaption></figure><figure id="3307dafb-4a6d-479f-b53b-83db1da122a3"><audio controls="" preload="auto" src="Audio%20Examples%20baf40796fa6049528bc3f9c90f84a75a/60_35.wav">https://s3-us-west-2.amazonaws.com/secure.notion-static.com/f255e81f-e1cc-49c4-8c7e-74f061b08e18/60_35.wav" type="audio/pcm"></audio></div><figcaption>h:60 n:35</figcaption></figure><figure id="566751a5-7325-48d2-9ca9-fa5e40eccd70"><audio controls="" preload="auto" src="Audio%20Examples%20baf40796fa6049528bc3f9c90f84a75a/60_65.wav">https://s3-us-west-2.amazonaws.com/secure.notion-static.com/f67487b8-0396-45c5-8fb9-3533aa0bbc16/60_65.wav" type="audio/pcm"></audio></div><figcaption>h:60 n:65</figcaption></figure><figure id="e10c3a9e-59a9-4627-8fa4-9fa34c196f2c"><audio controls="" preload="auto" src="Audio%20Examples%20baf40796fa6049528bc3f9c90f84a75a/100_10.wav">https://s3-us-west-2.amazonaws.com/secure.notion-static.com/171efb6e-7b02-478f-846a-7a8e060865ef/100_10.wav" type="audio/pcm"></audio></div><figcaption>h:100 n:10</figcaption></figure><figure id="529b8dbc-e5bd-47bb-8b9c-9dc99970e6d0"><audio controls="" preload="auto" src="Audio%20Examples%20baf40796fa6049528bc3f9c90f84a75a/100_35.wav">https://s3-us-west-2.amazonaws.com/secure.notion-static.com/28fe875c-2e9e-4e13-b111-e961c20b7225/100_35.wav" type="audio/pcm"></audio></div><figcaption>h:100 n:35</figcaption></figure><figure id="af7b1a53-623e-452f-8951-9d6da6db4a50"><audio controls="" preload="auto" src="Audio%20Examples%20baf40796fa6049528bc3f9c90f84a75a/100_65.wav">https://s3-us-west-2.amazonaws.com/secure.notion-static.com/40fa18de-42e0-434a-bae8-2f24805c9bca/100_65.wav" type="audio/pcm"></audio></div><figcaption>h:100 n:60</figcaption></figure><h3 id="dd363fb5-8207-4408-aced-54bf3f7eae99" class="">5.2 Problems</h3><p id="544feb54-ab22-4e37-8b67-5bd72805e586" class=""><strong>Silence</strong></p><figure id="12ff6986-260d-4f6e-8865-86f70590664f"><audio controls="" preload="auto" src="Audio%20Examples%20baf40796fa6049528bc3f9c90f84a75a/silencio_-_original.wav">https://s3-us-west-2.amazonaws.com/secure.notion-static.com/ddaa3c47-039a-4551-b2c3-065a626fd50d/silencio_-_original.wav" type="audio/pcm"></audio></div><figcaption>Original</figcaption></figure><figure id="4d12f741-dcf2-42fc-a584-15b5d5f7a9a1"><audio controls="" preload="auto" src="Audio%20Examples%20baf40796fa6049528bc3f9c90f84a75a/silencio_-_problemas.wav">https://s3-us-west-2.amazonaws.com/secure.notion-static.com/dd4933f2-3e04-4226-aa6c-44738fb55ef5/silencio_-_problemas.wav" type="audio/pcm"></audio></div><figcaption>Model</figcaption></figure><p id="f9e71bd1-f535-4d36-b12b-61290e8d5c20" class=""><strong>Pitch artifacts</strong></p><figure id="7be5af08-6341-4201-8769-014094dbfd77"><audio controls="" preload="auto" src="Audio%20Examples%20baf40796fa6049528bc3f9c90f84a75a/pitch_-_original.wav">https://s3-us-west-2.amazonaws.com/secure.notion-static.com/d1661d9b-4fd0-4634-9903-11fb070bb408/pitch_-_original.wav" type="audio/pcm"></audio></div><figcaption>Original</figcaption></figure><figure id="bafe6292-47bb-4219-85ff-d8650cb193a4"><audio controls="" preload="auto" src="Audio%20Examples%20baf40796fa6049528bc3f9c90f84a75a/pitch_-_problemas.wav">https://s3-us-west-2.amazonaws.com/secure.notion-static.com/08d6d190-2100-4165-a164-f4193e94c2f8/pitch_-_problemas.wav" type="audio/pcm"></audio></div><figcaption>Model</figcaption></figure><p id="12ae0d54-ee1d-4ae6-a692-ee5c3d1d675d" class="">
+</p></div></article></body></html>
