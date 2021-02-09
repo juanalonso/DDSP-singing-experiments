@@ -9,5 +9,13 @@
 Additive
 Harmonic
 
-DefautlPreprocessor
+DefaultPreprocessor
 F0LoudnessPreprocessor
+
+#for z encoder
+Add.name = 'add'
+processors.Add.name = 'add'
+
+#remove these two lines
+MfccTimeDistributedRnnEncoder.f0_encoder = None
+MfccTimeDistributedRnnEncoder.name = 'mfcc_time_distrbuted_rnn_encoder'
