@@ -11,11 +11,15 @@
 `02_run`: Notebook used for timbre transfer. It will use the instruments generated with `01_train` to transform the files provided by the user.
 
 ## Background
-### 👉🏼 No ML knowledge required! 👈🏼
+### 👉🏼 (Almost) no ML knowledge required! 👈🏼
 
 **DDSP singing experiments** is built upon the great library [DDSP: Differentiable Digital Signal Processing](https://github.com/magenta/ddsp) by Google's [Magenta team](https://magenta.tensorflow.org/). The library is presented in [this paper](https://arxiv.org/abs/2001.04643) and there is also a great [blog post](https://magenta.tensorflow.org/ddsp) by the original authors.
 
-Machine Learning based singing voice models require large datasets and lengthy training times. **DDSP singing experiments** is a lightweight architecture, based on the DDSP library, that is able to output song-like utterances conditioned only on pitch and amplitude, after 12 hours of training using 15 minutes of unprocessed audio. The results are promising, as both the melody and the singer’s voice are recognizable. You can read our paper [Latent Space Explorations of Singing Voice Synthesis using DDSP](https://arxiv.org/abs/2103.07197) or dive into the Colab Notebooks, where you can easily train and use the models. 
+This work allows us to explore one area of particular interest to us: the creation of tools that facilitate creative experimentation with Deep Neural Networks, while leaving room for serendipity and accidental findings. Applying DDSP to the singing voice has been a consciously daring decision: we wanted to explore the limits of the library by using small datasets extracted from raw, unprepared audio, with no linguistic conditioning.
+
+Machine Learning based singing voice models require large datasets and lengthy training times. **DDSP singing experiments** is a lightweight architecture, based on the DDSP library, that is able to output song-like utterances conditioned only on pitch and amplitude, after 12 hours of training using 15 minutes of unprocessed audio. The results are promising, as both the melody and the singer’s voice are recognizable, and enough leeway exists for further formal research and artistic usage.
+
+You can 1️⃣ read our paper [Latent Space Explorations of Singing Voice Synthesis using DDSP](https://arxiv.org/abs/2103.07197), 2️⃣ dive into the notebooks, where you can easily train and use the models or 3️⃣ [listen to the results](https://juanalonso.github.io/DDSP-singing-experiments/). 
 
 
 ## Design goals
@@ -32,7 +36,7 @@ This complexity acts as a barrier to new DL practitioners or curious programmers
 
 ## Development notes
 
-To achieve the design goals, we provide a series of Colab notebooks. Colab provides a virtual machine per session, with a GPU and a predetermined amount of RAM and disk space. Those parameters are automatically assigned, the user can not choose the amount of RAM or the type of GPU. Also, sessions last up to twelve hours. Upon an unexpected disconnection, a user may lose all the data stored in the virtual machine. For that reason, it is fundamental to save the final or temporal results to another drive. In this project, we use Google Drive as permanent storage space. All the required data are copied to Colab when the session starts, and the results will be stored in Drive, so no data is lost in case of disconnection.
+To achieve the design goals, we provide a series of Colab notebooks. Colab provides a virtual machine per session, with a GPU and a predetermined amount of RAM and disk space. Colab sessions last up to twelve hours. Upon an unexpected disconnection, a user may lose all the data stored in the virtual machine. For that reason, it is fundamental to save the final or temporal results to another drive. In this project, we use Google Drive as permanent storage space. All the required data are copied to Colab when the session starts, and the results will be stored in Drive, so no data is lost in case of disconnection.
 
 ### Folder structure
 
@@ -40,7 +44,7 @@ To facilitate access to the data, all the notebooks expect to find a similar fol
 
 <img width="60%" alt="fig_folderstructure" src="https://user-images.githubusercontent.com/1846199/110327534-6364fd80-801a-11eb-9e81-2455f0cfee11.png">
 
-Managing files in Google Drive can be suboptimal if done via the standard web interface. It is very recommended to use [Google Drive for desktop](https://support.google.com/drive/answer/7329379), an official free utility that allows the user to manage files and folders in Google Drive using the user's computer's native interface.
+Managing files in Google Drive can be a nightmare if done via the standard web interface. It is very recommended to use [Google Drive for desktop](https://support.google.com/drive/answer/7329379), an official free utility that allows the user to manage files and folders in Google Drive using the user's computer's native interface.
 
 ## Training the model with `01_train`
 
