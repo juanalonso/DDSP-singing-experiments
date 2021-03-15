@@ -30,7 +30,7 @@ This project has two major goals:
 
 This complexity acts as a barrier to new DL practitioners or curious programmers that want to get familiar with something different than the simplest examples. To lower this barrier, we have followed two principles when designing these notebooks: *easy to use* and *easy to reuse*. Easy to use means that after a minimal configuration (setting up three folders) the user is ready to start training or producing audio. Easy to reuse means that the system is aware of previous operations, so the dataset is generated only once, the training can be interrupted at any point and it will be restored in the next run, and models and audio examples are only reloaded on demand, speeding up the process.
 
-##Development notes
+## Development notes
 
 To achieve the design goals, we provide a series of Colab notebooks. Colab provides a virtual machine per session, with a GPU and a predetermined amount of RAM and disk space. Those parameters are automatically assigned, the user can not choose the amount of RAM or the type of GPU. Also, sessions last up to twelve hours. Upon an unexpected disconnection, a user may lose all the data stored in the virtual machine. For that reason, it is fundamental to save the final or temporal results to another drive. In this project, we use Google Drive as permanent storage space. All the required data are copied to Colab when the session starts, and the results will be stored in Drive, so no data is lost in case of disconnection.
 
