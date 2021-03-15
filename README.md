@@ -4,7 +4,6 @@
 #### Please, visit [the audio examples page](https://juanalonso.github.io/DDSP-singing-experiments/) to listen to the results.
 
 ## Main notebooks
-### 👉🏼 No ML knowledge required! 👈🏼
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/juanalonso/DDSP-singing-experiments/blob/main/01_train.ipynb)
 `01_train`: Notebook used for training the model. It only needs a folder with the sample files and enough time to run. The training process can be interrupted and continued at any point, even if Google closes the connection.
 
@@ -12,6 +11,8 @@
 `02_run`: Notebook used for timbre transfer. It will use the instruments generated with `01_train` to transform the files provided by the user.
 
 ## Background
+### 👉🏼 No ML knowledge required! 👈🏼
+
 **DDSP singing experiments** is built upon the great library [DDSP: Differentiable Digital Signal Processing](https://github.com/magenta/ddsp) by Google's [Magenta team](https://magenta.tensorflow.org/). The library is presented in [this paper](https://arxiv.org/abs/2001.04643) and there is also a great [blog post](https://magenta.tensorflow.org/ddsp) by the original authors.
 
 Machine Learning based singing voice models require large datasets and lengthy training times. **DDSP singing experiments** is a lightweight architecture, based on the DDSP library, that is able to output song-like utterances conditioned only on pitch and amplitude, after 12 hours of training using 15 minutes of unprocessed audio. The results are promising, as both the melody and the singer’s voice are recognizable. You can read our paper [Latent Space Explorations of Singing Voice Synthesis using DDSP](https://arxiv.org/abs/2103.07197) or dive into the Colab Notebooks, where you can easily train and use the models. 
