@@ -1,18 +1,23 @@
 # DDSP singing experiments
-Notebooks and datasets for the Sound and Music Computing 9 semester project
+[Sound and Music Computing](https://www.smc.aau.dk/) - Aalborg University, Copenhagen
 
-Autumn 2020 - Aalborg University, Copenhagen
+#### Please, visit [the audio examples page](https://juanalonso.github.io/DDSP-singing-experiments/) to listen to the results.
 
-#### Please, visit https://juanalonso.github.io/DDSP-singing-experiments/ to listen to the audio examples.
-
-### Main notebooks
+## Main notebooks
+### 👉🏼 No ML knowledge required! 👈🏼
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/juanalonso/DDSP-singing-experiments/blob/main/01_train.ipynb)
 `01_train`: Notebook used for training the model. It only needs a folder with the sample files and enough time to run. The training process can be interrupted and continued at any point, even if Google closes the connection.
 
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/juanalonso/DDSP-singing-experiments/blob/main/02_run.ipynb)
 `02_run`: Notebook used for timbre transfer. It will use the instruments generated with `01_train` to transform the files provided by the user.
 
-# Design goals
+## Background
+**DDSP singing experiments** is built upon the great library [DDSP: Differentiable Digital Signal Processing](https://github.com/magenta/ddsp) by Google's [Magenta team](https://magenta.tensorflow.org/). The library is presented in [this paper](https://arxiv.org/abs/2001.04643) and there is also a great [blog post](https://magenta.tensorflow.org/ddsp) by the original authors.
+
+Machine Learning based singing voice models require large datasets and lengthy training times. **DDSP singing experiments** is a lightweight architecture, based on the DDSP library, that is able to output song-like utterances conditioned only on pitch and amplitude, after 12 hours of training using 15 minutes of unprocessed audio. The results are promising, as both the melody and the singer’s voice are recognizable. You can read our paper [Latent Space Explorations of Singing Voice Synthesis using DDSP](https://arxiv.org/abs/2103.07197) or dive into the Colab Notebooks, where you can easily train and use the models. 
+
+
+## Design goals
 
 This project has two major goals:
 
@@ -24,13 +29,11 @@ This project has two major goals:
 
 This complexity acts as a barrier to new DL practitioners or curious programmers that want to get familiar with something different than the simplest examples. To lower this barrier, we have followed two principles when designing these notebooks: *easy to use* and *easy to reuse*. Easy to use means that after a minimal configuration (setting up three folders) the user is ready to start training or producing audio. Easy to reuse means that the system is aware of previous operations, so the dataset is generated only once, the training can be interrupted at any point and it will be restored in the next run, and models and audio examples are only reloaded on demand, speeding up the process.
 
-# Development notes
+##Development notes
 
-To achieve the design goals, a series of Colab notebooks has been made available to the public. Google Colaboratory, also known as Colab, is a free Google product from Google Research that allows to write and execute Python code in the browser, it requires no setup and provides free access to GPUs. It is based on (and compatible with) the open-source project [Jupyter](https://jupyter.org/). The notebooks are stored in Google Drive or GitHub, so they can be easily shared or versioned.
+To achieve the design goals, we provide a series of Colab notebooks. Colab provides a virtual machine per session, with a GPU and a predetermined amount of RAM and disk space. Those parameters are automatically assigned, the user can not choose the amount of RAM or the type of GPU. Also, sessions last up to twelve hours. Upon an unexpected disconnection, a user may lose all the data stored in the virtual machine. For that reason, it is fundamental to save the final or temporal results to another drive. In this project, we use Google Drive as permanent storage space. All the required data are copied to Colab when the session starts, and the results will be stored in Drive, so no data is lost in case of disconnection.
 
-Colab provides a virtual machine per session, with a GPU and a predetermined amount of RAM and disk space. Those parameters are automatically assigned, the user can not choose the amount of RAM or the type of GPU. Also, sessions last up to twelve hours. Upon an unexpected disconnection, a user may lose all the data stored in the virtual machine. For that reason, it is fundamental to save the final or temporal results to another drive. In this project, we use Google Drive as permanent storage space. All the required data are copied to Colab when the session starts, and the results will be stored in Drive, so no data is lost in case of disconnection.
-
-## Folder structure
+### Folder structure
 
 To facilitate access to the data, all the notebooks expect to find a similar folder structure in Google Drive, so all data is shared without needing to move it around. The base folder is defined at the top of each notebook. Inside this folder three folders are needed: `audio`, where the audio files, temporal checkpoints and datasets are stored; `examples`, which contains the files we are going to present to the model to modify their original timbre; and `instruments`, where the trained models are stored in zip format.
 
@@ -38,19 +41,19 @@ To facilitate access to the data, all the notebooks expect to find a similar fol
 
 Managing files in Google Drive can be suboptimal if done via the standard web interface. It is very recommended to use [Google Drive for desktop](https://support.google.com/drive/answer/7329379), an official free utility that allows the user to manage files and folders in Google Drive using the user's computer's native interface.
 
-# Training the model with `01_train`
+## Training the model with `01_train`
 
-## Data preparation
+### Data preparation
 
 For each instrument we want the system to learn its timbral characteristics, we need to create a folder inside the `audio` folder and place there the source audio files in wav or mp3 format. We will use `newinst` as the folder / instrument name for the rest of the section. No additional conversions (bit-depth, sample frequency, number of channels) are needed. Splitting the audio files into 3-minute chunks is recommended.
 
-## Notebook configuration
+### Notebook configuration
 
 All the configuration values are entered in the first two cells of the notebook. The first one mounts the Google Drive file system and prompts for an authorization code. The second cell defines 1) the entry point and 2), the name of the folder with the source audio files.
 
 Also, the runtime must be changed to GPU to take advantage of the accelerated hardware. (Choose `Runtime > Change runtime type > GPU` in the Colab menu)
 
-## Training the model
+### Training the model
 
 Once the notebook is set up, the rest of the process is automatic, and the training starts when we execute the whole notebook (`Runtime > Execute all` in the Colab menu). The notebook will download the DDSP library, import the required python libraries, create additional folders to store the checkpoints and the final instrument, and then will create the dataset from the audio files.
 
@@ -71,7 +74,7 @@ Once the training has finished or is interrupted, the notebook will run the mode
 
 The last step is creating the standalone model / instrument file. This file will be used in the timbre transfer notebook and it is a zip file with the most recent checkpoint, the configuration file and the pickle file. The file is copied to the `instruments` folder (in our example, it will be `instruments\newinst.zip`).
 
-## Tips and Tricks
+### Tips and Tricks
 
 * To create the dataset, it is better to split the source audio into several shorter audio files (up to three minutes) instead of using a single longer file. In our experience, longer files tend to cause out-of-memory errors.
 * It is difficult to estimate the duration of the training process. The GPU assignation method is unknown to the user, and the time per step also varies during a session. As a rule of thumb, we use a conservative estimation of 3000 steps per hour, roughly equivalent to 0.8 steps per second.
@@ -79,17 +82,17 @@ The last step is creating the standalone model / instrument file. This file will
 * To be able to keep training the model, do not delete the checkpoints folder, otherwise the training will start from scratch. It is also recommended to keep the dataset folder. If not present, the dataset will be recreated, and it is a slow operation.
 * The instrument file should be around 50-55MB in size. If it is bigger, it means that more than a set of checkpoints are stored inside, usually because the neural network has been trained more than once in the same session. This can cause a problem when using the instrument file in the timbre transfer notebook, because the system will pick one of the checkpoint files at random. If this happens, we can manually delete the undesired checkpoints from the zip file.
 
-# Timbre transfer with `02_run`
+## Timbre transfer with `02_run`
 
-## Data preparation
+### Data preparation
 
 In this section we will use the folder `instruments`, where the models are automatically stored, and the folder `examples` where we will place the source audio files (in wav and mp3 format) we want to transform.
 
-## Notebook configuration
+### Notebook configuration
 
 Similar to the training notebook, the first cell mounts the Google Drive file system and prompts for an authorization code. The second cell defines 1) the entry point and 2) the name of the folder with the instruments and the name of the folder with the examples, `instruments` and `examples` by default.
 
-## Running the model
+### Running the model
 
 This notebook is interactive, and possesses a minimal GUI to load instruments, examples and fine-tune the output. When the notebook is executed, it will download the required libraries, and copy the examples and instruments from Drive to Colab.
 
@@ -129,7 +132,7 @@ The output presented by the model is (from top to bottom):
 
 
 
-# Additional Tools
+### Additional Tools
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/juanalonso/DDSP-singing-experiments/blob/main/tools/plot_voice_space.ipynb)
 `plot_voice_space`: Helper notebook to plot the total loss from all the voice models.
 
