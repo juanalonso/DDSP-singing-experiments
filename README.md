@@ -146,3 +146,17 @@ The output presented by the model is (from top to bottom):
 
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/juanalonso/DDSP-singing-experiments/blob/main/tools/plot_param_space.ipynb)
 `plot_param_space`: Helper notebook to plot the total loss from models trained on the eva model with different spectral parameters.
+
+### Citation
+
+If you use this code please cite it as:
+
+```latex
+@inproceedings{
+  moreno2020latent,
+  title={Latent birds: a bird’s-eye view exploration of the latent space},
+  author={Alonso, Juan and Bigoni, Francesco and Palamas, George},
+  booktitle={Proceedings of 17th Sound and Music Computing Conference},
+  year={2020}
+}
+```
