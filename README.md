@@ -2,6 +2,7 @@
 [Sound and Music Computing](https://www.smc.aau.dk/) - Aalborg University, Copenhagen
 
 #### Please, visit [the audio examples page](https://juanalonso.github.io/DDSP-singing-experiments/) to listen to the results.
+#### The paper [Explorations Of Singing Voice Synthesis Using DDSP](https://arxiv.org/pdf/2103.07197) was presented at the 18th Sound and Music Computing conference.
 
 ## Main notebooks
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/juanalonso/DDSP-singing-experiments/blob/main/01_train.ipynb)
@@ -153,10 +154,10 @@ If you use this code please cite it as:
 
 ```latex
 @inproceedings{
-  moreno2020latent,
-  title={Latent birds: a bird’s-eye view exploration of the latent space},
-  author={Alonso, Juan and Bigoni, Francesco and Palamas, George},
-  booktitle={Proceedings of 17th Sound and Music Computing Conference},
-  year={2020}
+  alonso2021latent,
+  title={Latent Space Explorations of Singing Voice Synthesis using DDSP},
+  author={Alonso, Juan and Erkut, Cumhur},
+  booktitle={Proceedings of 18th Sound and Music Computing Conference},
+  year={2021}
 }
 ```
